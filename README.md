@@ -1,11 +1,11 @@
 # **Traffic Sign Recognition** 
 ## Overview
-In this project, I will use what I have learned about deep neural networks and convolutional neural networks to classify traffic signs. I will train a model so it can decode traffic signs from natural images by using [the German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, I will then test my model program on new images of traffic signs I find on the web.
+In this project, I used what I have learned about deep neural networks and convolutional neural networks to classify 43 traffic signs using [the German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). I trained a model based on LeNet architecture so it can decode traffic signs from the datasets. After the model was trained, I then tested my model performance on the validation dataset to find tune the hyperpromaters. Once the final model is selected, I used the model to test on new images of traffic signs I found on the web.
 
 **The steps of this project are the following:**
 * Load the data set (training, validation, test)
 * Explore, summarize and visualize the data set
-* Pro-process, Design, train and test a model architecture
+* Pro-process, design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
@@ -25,29 +25,32 @@ In this project, I will use what I have learned about deep neural networks and c
 
 #### 1. Overview of the basic summary of the data set
 
-The pickled data is a dictionary with 4 key/value pairs:
+The three datasets are pickled data which are providing a dictionary with 4 key/value pairs:
 
-'features' is a 4D array containing raw pixel data of the traffic sign images, (num examples, width, height, channels).
-'labels' is a 1D array containing the label/class id of the traffic sign. The file signnames.csv contains id -> name mappings for each id.
-'sizes' is a list containing tuples, (width, height) representing the original width and height the image.
-'coords' is a list containing tuples, (x1, y1, x2, y2) representing coordinates of a bounding box around the sign in the image. 
+* 'features' is a 4D array containing raw pixel data of the traffic sign images, (num examples, width, height, channels).
+* 'labels' is a 1D array containing the label/class id of the traffic sign. The file signnames.csv contains id -> name mappings for each id.
+* 'sizes' is a list containing tuples, (width, height) representing the original width and height the image.
+* 'coords' is a list containing tuples, (x1, y1, x2, y2) representing coordinates of a bounding box around the sign in the image. 
 
+The sizes of the datasets are:
 * The size of training set is 34799.
 * The size of the validation set is 4410.
 * The size of test set is 12630.
-* The shape of a traffic sign image is (32, 32, 3), each is a RGB color image.
+* The shape of a traffic sign image is (32, 32, 3), each is a RGB colored image.
 * The number of unique classes/labels in the data set is 43.
 
-#### 2. Include an exploratory visualization of the dataset.
+Noticed that LeNet accepts input of 32 x 32 x C, the dataset is ready to feed in the LeNet with or without grayscale the images.
 
-Here is an exploratory visualization of the data set. The image quality is fairly low.
+#### 2. Exploratory visualization of the dataset
+
+The image quality are diversified with some of them are fairly good while others are low quality.
 
 [Training Data Set]((https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png)
 [Validation Data Set]((https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_valid.png)
 [Test Data Set]((https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png)
 
 The 43 classes allocations in each datasets are shown as follows:
-![alt-text-1](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_train.png "traffic signs in training dataset") ![alt-text-2](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_valid.png "traffic signs in validation dataset") ![alt-text-3](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_test.png "traffic signs in test dataset")
+![alt-traffic signs in training dataset](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_train.png) ![alt-traffic signs in validation dataset](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_valid.png) ![alt-traffic signs in test dataset](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_test.png)
 
 ### Preprocess, Design and Test a Model Architecture
 
