@@ -43,14 +43,14 @@ Noticed that LeNet accepts input of 32 x 32 x C, the dataset is ready to feed in
 
 #### 2. Exploratory visualization of the dataset
 
-The image quality are diversified with some of them are fairly good while others are low quality.
+The image quality are diversified with some of them are fairly good while others are low quality to recognize the type of sign visually.
 
-![Training Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png)
-![Validation Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_valid.png)
-![Test Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png)
+![Training Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png "Training Data Set")
+![Validation Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_valid.png "Validation Data Set")
+![Test Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png "Test Data Set")
 
-The 43 classes allocations in each datasets are shown as follows:
-![alt-traffic signs in training dataset](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_train.png) ![alt-traffic signs in validation dataset](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_valid.png) ![alt-traffic signs in test dataset](](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_test.png)
+The 43 classes in each dataset are distributed fairly in the similar ratio, below shown the statistics:
+![traffic signs labels in training dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_train.png "traffic signs labels in training dataset") ![traffic signs labels in validation dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_valid.png "traffic signs labels in validation dataset") ![traffic signs labels in test dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_test.png "traffic signs labels in test dataset")
 
 ### Preprocess, Design and Test a Model Architecture
 
