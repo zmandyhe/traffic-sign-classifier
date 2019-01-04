@@ -76,7 +76,7 @@ def normalize_grayscale(image_data):
 ```
 
 Here is an example of a traffic sign image before and after grayscaling.
-[Grayscaled and Normalized image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/grayscale-normalized.png)
+![Grayscaled and Normalized image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/grayscale-normalized.png)
 
 The difference between the original data set and the augmented data set is that the augmented data set contain lower quality of images such as blurrer, brightening light, or from from different angles to a traffic sign. It feeds data with more diverse perspectives to each class labels to produce a more stable model for prediction.
 
