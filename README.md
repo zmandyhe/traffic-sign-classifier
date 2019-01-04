@@ -45,7 +45,7 @@ Noticed that LeNet accepts input of 32 x 32 x C, the dataset is ready to feed in
 
 The image quality are diversified with some of them are fairly good while others are low quality to recognize the type of sign visually.
 
-![alt Training Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png "Training Dataset")
+![alt Training Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png?raw=true "Training Dataset")
 ![alt Validation Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_valid.png)
 ![alt Test Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png)
 
