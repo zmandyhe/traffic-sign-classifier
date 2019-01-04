@@ -174,10 +174,12 @@ The prediction result for the eight new images are:
 | Roadwork                                                               | Bicyble crossing (probability of 0.62)           | 2nd guess (keep left, probability of 0.34), 3rd guess(Bumpy Road, probability of 0.03),
                                                                                                                                                          4th guess (Roadwork, probability of 0.02) |
 
-For the two mis-predicted images, the model is relatively unsure. The top five soft max probabilities were shown as follows. The images among the correct label and wrongly predicted labels contain pariticial simalities. Such as, the model could not see the difference between 30 and 50 to some images; pedestrian are shown on both roadwork sign and bicycles corssing signs, which confused the model. Further work can be focusing on improving the model on these relatively difficult classes.
+For the first mis-predicted image, the model is relatively unsure of whether it is a 30k/h speed limit sign or 50k/h speed limit sign. The model gussed with 64% for 50k/h speed limit, and 34% for 30k/h speed limit.
+
 Mis-classification 1: Speed limit (30k/h)
 ![Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input1-misprediction.png)
 
+For the second mis-predicted image, the top five soft max probabilities were shown as follows. The images among the correct label and wrongly predicted labels contain pariticial simalities. Such as, pedestrian are shown on both roadwork sign and bicycles corssing signs, which confused the model. Further work can be focusing on improving the model with feeding more on these data to fine tune the model accuracy on these relatively difficult classes.
 Mis-classification 2: Roadwork
 ![Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input24-misprediction.png)
 
