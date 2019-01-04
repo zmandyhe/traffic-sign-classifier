@@ -182,7 +182,7 @@ Mis-classification 1: Speed limit (30k/h)
 For the second mis-predicted image, the top five soft max probabilities were shown as follows. The images among the correct label and wrongly predicted labels contain pariticial simalities. Such as, pedestrian are shown on both roadwork sign and bicycles corssing signs, which confused the model. Further work can be focusing on improving the model with feeding more on these data to fine tune the model accuracy on these relatively difficult classes.
 
 Mis-classification 2: Roadwork
-![Class 2](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input24-misprediction.png)
+![Class 2](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input25-misprediction.png)
 
 ### Re-produce This Notebook Pipeline:
 
