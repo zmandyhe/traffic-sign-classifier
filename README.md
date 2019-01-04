@@ -55,25 +55,25 @@ Test Dataset:
 ![alt Test Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png)
 
 The 43 classes in each dataset are distributed fairly in the similar ratio, below shown the statistics:
-![alt traffic signs labels in 3 dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y-label-distribution-train-valid-test.png)
+![alt traffic signs labels in 3 dataset](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/y-label-distribution-train-valid-test.png)
 
 ### Preprocess, Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 As a first step, I decided to augment the training dataset by random blurring, brightening, and rotating techniques to match closely with the real-road situation. I finally chose to augment 30% images for each class from the training dataset, then merged these augmented new images with the training dataset to form an expanded new training dataset. The total number of samples become 46,892. Here is an example of an original iamge and an augmented image:
-[Augmented Image](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/rotated.png)
+[Augmented Image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/rotated.png)
 
 As a last step, I then decided to convert the images to grayscale, and normalized them in training, validation, and test datasets.
 
 Here is an example of a traffic sign image before and after grayscaling.
-[Grayscaled and Normalized image](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/grayscale-normalized.png)
+[Grayscaled and Normalized image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/grayscale-normalized.png)
 
 The difference between the original data set and the augmented data set is the augmented data set contain lower quality of images such as blurrer, brightening light, or from from different angles to a traffic sign. It feeds data with more diverse perspectives to each class labels to produce a more stable model for prediction.
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 My final model is based on LeNet architecture, with added dropout in the last fully connected layer to prevent overfitting. The model overview is as follows:
-[Final Model Architecture](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/LeNet-architecture.png)
+[Final Model Architecture](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/LeNet-architecture.png)
 
 My final model consisted of the following layers:
 
@@ -127,7 +127,7 @@ The final learning rate is set to 0.0005, and with this relatively larger traini
 
 Here are five German traffic signs that I found on the web:
 
-[8 Traffic Signs from Web](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/8-web-traffic-signs.png)
+[8 Traffic Signs from Web](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/8-web-traffic-signs.png)
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set
 
@@ -150,8 +150,8 @@ The prediction result for the eight new images are:
                                                                                                                                                          4th guess (Roadwork, probability of 0.02)
 
 For the two mis-predicted images, the model is relatively unsure. The top five soft max probabilities were shown as follows. The images among the correct label and wrongly predicted labels contain pariticial simalities. Such as, the model could not see the difference between 30 and 50 to some images; pedestrian are shown on both roadwork sign and bicycles corssing signs, which confused the model. Further work can be focusing on improving the model on these relatively difficult classes.
-[Class 1](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/input1-misprediction.png)
-[Class 1](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/input24-misprediction.png)
+[Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input1-misprediction.png)
+[Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input24-misprediction.png)
 
 ### Re-produce This Notebook Pipeline:
 
