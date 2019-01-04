@@ -44,15 +44,18 @@ Noticed that LeNet accepts input of 32 x 32 x C, the dataset is ready to feed in
 #### 2. Exploratory visualization of the dataset
 
 The image quality are diversified with some of them are fairly good while others are low quality to recognize the type of sign visually.
+
 Training Dataset:
-![alt Training Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png?raw=true "Training Dataset")
+![alt Training Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_train.png?raw=true)
+
 Validation Dataset:
 ![alt Validation Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_valid.png)
+
 Test Dataset:
 ![alt Test Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png)
 
 The 43 classes in each dataset are distributed fairly in the similar ratio, below shown the statistics:
-![traffic signs labels in training dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_train.png) ![traffic signs labels in validation dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_valid.png "traffic signs labels in validation dataset") ![traffic signs labels in test dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y_test.png "traffic signs labels in test dataset")
+![traffic signs labels in 3 dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y-label-distribution-train-valid-test.png)
 
 ### Preprocess, Design and Test a Model Architecture
 
