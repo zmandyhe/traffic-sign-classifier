@@ -83,7 +83,7 @@ The difference between the original data set and the augmented data set is that 
 
 #### 2. The  final model architecture
 
-My final model is based on LeNet architecture, with added dropout in the last fully connected layer to prevent overfitting. The model overview is as follows:
+My final model is based on LeNet architecture, with added dropout in the last fully connected layer to prevent overfitting. The LeNet model overview is as follows (noticed the final fully connected OUTPUT layer is 43 rather than 10):
 ![Final Model Architecture](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/LeNet-architecture.png)
 
 My final model consisted of the following layers:
@@ -106,28 +106,38 @@ My final model consisted of the following layers:
 | Layer 5 Fully Connected               | input 84, output 43           |
 
 
-#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Describe how you trained your model
 
 To train the model, I used tf.train.AdamOptimizer function for training the CNN model. The Adam optimizer is a robust stochastic gradient-based optimization method suited for nonconvex optimization and machine learning problems. 
+```
+rate = 0.0005
+BATCH_SIZE = 128
+EPOCHS = 200
+logits = LeNet(x)
+cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels=one_hot_y, logits=logits)
+loss_operation = tf.reduce_mean(cross_entropy)
+optimizer = tf.train.AdamOptimizer(learning_rate = rate)
+training_operation = optimizer.minimize(loss_operation)
+```
 
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93
 
 My final model results were:
 * training set accuracy: 0.757
 * validation set accuracy: 0.960
 * test set accuracy: 0.933
 
-* What was the first architecture that was tried and why was it chosen?
+What was the first architecture that was tried and why was it chosen?
 I chose the LeNet architecture as its a multilayer Perceptron algorithm working well on the MNIST dataset. I did not use dropout method at first, which resulted a heavy overfitting with a low valadiation accuracy, so I tried to add the dropout in different layer. The current model is to have the dropout before the final fully connected layer which produced a higher validation accuracy than the other experiments.
-* What were some problems with the initial architecture?
+
+What were some problems with the initial architecture?
 The initial architecture produce a higher training accuracy but a much lower validation accuracy (overfitting). I added dropout before the last fully connected layer, and took a longer time in pre-processing 30% of the images randomly with blurring, rotation, and brightening which are then added into the new training dataset.
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
+
+Which parameters were tuned? How were they adjusted and why?
 With the newly added augmented images, the training dataset is relatively large. A slower learning rate of 0.0005 learned better than learning rate of 0.001.
 Although a higher epochs shall produce a better model, I found with current preprocessed data and model architecture, a epochs of 100 is about the highest level the model can learn. My current training on 200 epochs ((0.960 validation accuracy) helps very little with model improvement comparing with 100 epochs (0.951 validation accuracy). 
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 The training accuracy is much lower than the validation accuracy due to the data augmentation that reduced the data quality. I trained 200 EPOC with 128 BATCH_SIZE, so the total number of samples images used are 55% of the total samples in the training dataset. The final training accuracy is increased from 0.755 in EPOCHS 50 to 0.757 in EPOCHS 200 with a slower improvement rate, but the validation accuracy rate is increased from 0.947 in EPOCHS TO 0.960 in EPOCHS 200. 
 
 The final learning rate is set to 0.0005, and with this relatively larger training data, the slower learning rate works better to tune a higher accuracy model.
@@ -138,7 +148,7 @@ The final learning rate is set to 0.0005, and with this relatively larger traini
 
 Here are five German traffic signs that I found on the web:
 
-[8 Traffic Signs from Web](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/8-web-traffic-signs.png)
+![8 Traffic Signs from Web](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/8-web-traffic-signs.png)
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set
 
