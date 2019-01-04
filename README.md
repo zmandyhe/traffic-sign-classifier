@@ -55,7 +55,7 @@ Test Dataset:
 ![alt Test Data Set](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/X_test.png)
 
 The 43 classes in each dataset are distributed fairly in the similar ratio, below shown the statistics:
-![traffic signs labels in 3 dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y-label-distribution-train-valid-test.png)
+![alt traffic signs labels in 3 dataset](https://github.com/zmandyhe/traffic-sign-classifier/tree/master/pic/y-label-distribution-train-valid-test.png)
 
 ### Preprocess, Design and Test a Model Architecture
 
