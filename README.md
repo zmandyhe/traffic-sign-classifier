@@ -59,21 +59,32 @@ The 43 classes in each dataset are distributed fairly in the similar ratio, belo
 
 ### Preprocess, Design and Test a Model Architecture
 
-#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
-As a first step, I decided to augment the training dataset by random blurring, brightening, and rotating techniques to match closely with the real-road situation. I finally chose to augment 30% images for each class from the training dataset, then merged these augmented new images with the training dataset to form an expanded new training dataset. The total number of samples become 46,892. Here is an example of an original iamge and an augmented image:
-[Augmented Image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/rotated.png)
+#### 1. Data augmentation and preprocessing
 
-As a last step, I then decided to convert the images to grayscale, and normalized them in training, validation, and test datasets.
+Generate additional data for training:
+With several experimental trainings and validatings for the model performance, I found an overfitting problem that the dropout could not solve well. I plotted the images from both dataset and found out the reason for that was due to the data in the validation dataset are more challenging than the data in the training dataset. As a first step, I decided to augment the training dataset by applying random blurring, brightening, and rotating techniques to add more challenging data to the training set to match closely with the real-road situation. I finally chose to augment 30% images for each traffic sign class from the training dataset, then merged these augmented new images with the training dataset to form an expanded new training dataset. The total number of training data was brought up to 46,892 from 34,799. Here is an example of an original iamge and an augmented image:
+![Augmented Image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/rotated.png)
+
+As a last step, I then decided to convert the images to grayscale, and normalized them in training, validation, and test datasets. The method for normalization is using Min-Max scaling to a range of [0.0, 1.0].
+```
+def normalize_grayscale(image_data):
+    a = 0.0
+    b = 1.0
+    grayscale_min = 0
+    grayscale_max = 255
+    return a + ( ( (image_data - grayscale_min)*(b - a) )/( grayscale_max - grayscale_min ) )
+```
 
 Here is an example of a traffic sign image before and after grayscaling.
 [Grayscaled and Normalized image](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/grayscale-normalized.png)
 
-The difference between the original data set and the augmented data set is the augmented data set contain lower quality of images such as blurrer, brightening light, or from from different angles to a traffic sign. It feeds data with more diverse perspectives to each class labels to produce a more stable model for prediction.
+The difference between the original data set and the augmented data set is that the augmented data set contain lower quality of images such as blurrer, brightening light, or from from different angles to a traffic sign. It feeds data with more diverse perspectives to each class labels to produce a more stable model for prediction.
 
 
-#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. The  final model architecture
+
 My final model is based on LeNet architecture, with added dropout in the last fully connected layer to prevent overfitting. The model overview is as follows:
-[Final Model Architecture](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/LeNet-architecture.png)
+![Final Model Architecture](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/LeNet-architecture.png)
 
 My final model consisted of the following layers:
 
