@@ -129,26 +129,26 @@ My final model results were:
 
 What was the first architecture that was tried and why was it chosen?
 
-I chose the LeNet architecture as its a multilayer Perceptron algorithm working well on the MNIST dataset. I did not use dropout method at first, which resulted a heavy overfitting with a low valadiation accuracy, so I tried to add the dropout in different layer. The current model is to have the dropout before the final fully connected layer which produced a higher validation accuracy than the other experiments.
+I chose the LeNet architecture as its a multilayer Perceptron algorithm working well on the MNIST dataset. I did not use dropout method at first, which resulted a heavy overfitting with a low valadiation accuracy, so I tried to add the dropout in different layer. The current model is to have the dropout before the final fully connected layer which produced a higher validation accuracy (0.960) than the other experiments.
 
 What were some problems with the initial architecture?
 
-The initial architecture produce a higher training accuracy but a much lower validation accuracy (overfitting). I added dropout before the last fully connected layer, and took a longer time in pre-processing 30% of the images randomly with blurring, rotation, and brightening which are then added into the new training dataset.
+The initial architecture produce a higher training accuracy but a much lower validation accuracy (overfitting). I added dropout before the last fully connected layer, meanwhile I took lots of efforts in pre-processing 30% of the images randomly with blurring, rotating, and brightening which are then added into the new training dataset. It turned out it helps with reducing the overfitting problem.
 
 Which parameters were tuned? How were they adjusted and why?
 
 With the newly added augmented images, the training dataset is relatively large. A slower learning rate of 0.0005 learned better than learning rate of 0.001.
-Although a higher epochs shall produce a better model, I found with current preprocessed data and model architecture, a epochs of 100 is about the highest level the model can learn. My current training on 200 epochs ((0.960 validation accuracy) helps very little with model improvement comparing with 100 epochs (0.951 validation accuracy). 
+Although a higher epochs shall produce a better model, I found with current preprocessed data and model architecture, a epochs of 100 is about the highest level the model can learn the most from current data. My current training on 200 epochs (0.960 validation accuracy) helps very little with model improvement comparing with 100 epochs (0.951 validation accuracy). 
 
 How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 
-The training accuracy is much lower than the validation accuracy due to the data augmentation that reduced the data quality. I trained 200 EPOC with 128 BATCH_SIZE, so the total number of samples images used are 55% of the total samples in the training dataset. The final training accuracy is increased from 0.755 in EPOCHS 50 to 0.757 in EPOCHS 200 with a slower improvement rate, but the validation accuracy rate is increased from 0.947 in EPOCHS TO 0.960 in EPOCHS 200. 
+The training accuracy is much lower than the validation accuracy due to the data augmentation that reduced the data quality in the training dataset. I trained 200 EPOCHS with 128 BATCH_SIZE, so the total number of samples images used are 55% of the total samples in the training dataset. The final training accuracy is increased from 0.755 in EPOCHS 50 to 0.757 in EPOCHS 200 with a slower improvement rate, but the validation accuracy rate is increased from 0.947 in EPOCHS 50 to 0.960 in EPOCHS 200. 
 
 The final learning rate is set to 0.0005, and with this relatively larger training data, the slower learning rate works better to tune a higher accuracy model.
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report
 
 Here are five German traffic signs that I found on the web:
 
@@ -162,21 +162,24 @@ The model was able to correctly guess 6 of the 8 traffic signs, which gives an a
 
 The prediction result for the eight new images are:
 
-|                                   Label                                     |                        Prediction                                | 
-|:---------------------:|:-------------------------------------------------------------------------------------:| 
-| Right-of-way at the next intersection                     | Right-of-way at the next intersection             | 
-| Priority road                                                            | Priority road                                                    |
-| Speed limit (60k/h)                                                  | Speed limit (60k/h)                                         |
-| Keep right                                                               | Keep right                                                      |
-| General Caution                                                     | General Caution                                             |
-| Speed limit (30k/h)                                                  | Speed limit (50k/h)  (probability of 0.64)      | 2nd guess (probability of 34) predict Speed limit (30k/h))
-| Turn left ahead                                                       | Turn left ahead                                                |
+|                                   Label                                     |                        Prediction                                |                    Probabilities                                        |
+|:---------------------:|:-------------------------------------------------------------------------------------:|---------------------------------------------------------:| 
+| Right-of-way at the next intersection                     | Right-of-way at the next intersection             |                                                                                  |
+| Priority road                                                            | Priority road                                                    |                                                                                    | 
+| Speed limit (60k/h)                                                  | Speed limit (60k/h)                                         |                                                                                      |
+| Keep right                                                               | Keep right                                                      |                                                                                      |
+| General Caution                                                     | General Caution                                             |                                                                                       |
+| Speed limit (30k/h)                                                  | Speed limit (50k/h)  (probability of 0.64)      | 2nd guess (probability of 34) predict Speed limit (30k/h))|
+| Turn left ahead                                                       | Turn left ahead                                                |                                                                                         |
 | Roadwork                                                               | Bicyble crossing (probability of 0.62)           | 2nd guess (keep left, probability of 0.34), 3rd guess(Bumpy Road, probability of 0.03),
-                                                                                                                                                         4th guess (Roadwork, probability of 0.02)
+                                                                                                                                                         4th guess (Roadwork, probability of 0.02) |
 
 For the two mis-predicted images, the model is relatively unsure. The top five soft max probabilities were shown as follows. The images among the correct label and wrongly predicted labels contain pariticial simalities. Such as, the model could not see the difference between 30 and 50 to some images; pedestrian are shown on both roadwork sign and bicycles corssing signs, which confused the model. Further work can be focusing on improving the model on these relatively difficult classes.
-[Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input1-misprediction.png)
-[Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input24-misprediction.png)
+Mis-classification 1: Speed limit (30k/h)
+![Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input1-misprediction.png)
+
+Mis-classification 2: Roadwork
+![Class 1](https://github.com/zmandyhe/traffic-sign-classifier/blob/master/pic/input24-misprediction.png)
 
 ### Re-produce This Notebook Pipeline:
 
