@@ -128,16 +128,20 @@ My final model results were:
 * test set accuracy: 0.933
 
 What was the first architecture that was tried and why was it chosen?
+
 I chose the LeNet architecture as its a multilayer Perceptron algorithm working well on the MNIST dataset. I did not use dropout method at first, which resulted a heavy overfitting with a low valadiation accuracy, so I tried to add the dropout in different layer. The current model is to have the dropout before the final fully connected layer which produced a higher validation accuracy than the other experiments.
 
 What were some problems with the initial architecture?
+
 The initial architecture produce a higher training accuracy but a much lower validation accuracy (overfitting). I added dropout before the last fully connected layer, and took a longer time in pre-processing 30% of the images randomly with blurring, rotation, and brightening which are then added into the new training dataset.
 
 Which parameters were tuned? How were they adjusted and why?
+
 With the newly added augmented images, the training dataset is relatively large. A slower learning rate of 0.0005 learned better than learning rate of 0.001.
 Although a higher epochs shall produce a better model, I found with current preprocessed data and model architecture, a epochs of 100 is about the highest level the model can learn. My current training on 200 epochs ((0.960 validation accuracy) helps very little with model improvement comparing with 100 epochs (0.951 validation accuracy). 
 
 How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+
 The training accuracy is much lower than the validation accuracy due to the data augmentation that reduced the data quality. I trained 200 EPOC with 128 BATCH_SIZE, so the total number of samples images used are 55% of the total samples in the training dataset. The final training accuracy is increased from 0.755 in EPOCHS 50 to 0.757 in EPOCHS 200 with a slower improvement rate, but the validation accuracy rate is increased from 0.947 in EPOCHS TO 0.960 in EPOCHS 200. 
 
 The final learning rate is set to 0.0005, and with this relatively larger training data, the slower learning rate works better to tune a higher accuracy model.
