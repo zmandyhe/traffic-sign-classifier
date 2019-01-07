@@ -142,7 +142,7 @@ Although a higher epochs shall produce a better model, I found with current prep
 
 How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 
-The training accuracy is much lower than the validation accuracy due to the data augmentation that reduced the data quality in the training dataset. I trained 200 EPOCHS with 128 BATCH_SIZE, so the total number of samples images used are 55% of the total samples in the training dataset. The final training accuracy is increased from 0.755 in EPOCHS 50 to 0.757 in EPOCHS 200 with a slower improvement rate, but the validation accuracy rate is increased from 0.947 in EPOCHS 50 to 0.960 in EPOCHS 200. 
+The training accuracy is much lower than the validation accuracy due to the data augmentation that reduced the data quality in the training dataset. I trained 200 EPOCHS with 128 BATCH_SIZE, so the total number of samples images used are 55% of the total samples in the training dataset. The final training accuracy is increased from 0.755 on epoch 50 to 0.757 on epoch 200 with a slower improvement rate, but the validation accuracy rate is increased from 0.947 on epoch 50 to 0.960 on epoch 200. 
 
 The final learning rate is set to 0.0005, and with this relatively larger training data, the slower learning rate works better to tune a higher accuracy model.
 
