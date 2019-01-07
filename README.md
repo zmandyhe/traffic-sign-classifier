@@ -162,7 +162,7 @@ The model was able to correctly guess 6 of the 8 traffic signs, which gives an a
 
 The prediction result for the eight new images are:
 
-|                                   Label                                     |                        Prediction                                |      Probabilities                                        |
+|                                   Label                                     |                        Prediction                                |Probabilities                                        |
 |:---------------------:|:-------------------------------------------------------------------------------------:|---------------------------------------------------------:| 
 | Right-of-way at the next intersection                     | Right-of-way at the next intersection             |                                                                                  |
 | Priority road                                                            | Priority road                                                    |                                                                                    | 
